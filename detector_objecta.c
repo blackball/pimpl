@@ -9,7 +9,7 @@ struct detector_objecta
     struct detector api;
 };
 
-struct detector_objecta *
+static struct detector_objecta *
 detector_objecta_create()
 {
     struct detector_objecta *d = (struct detector_objecta *)malloc(sizeof(*d));
@@ -17,7 +17,7 @@ detector_objecta_create()
     return d;
 }
 
-int
+static int
 detector_objecta_destroy(struct detector_objecta *d)
 {
     puts("objecta::destroy()");
@@ -25,7 +25,7 @@ detector_objecta_destroy(struct detector_objecta *d)
     return 0;
 }
 
-int
+static int
 detector_objecta_detect(struct detector_objecta *d)
 {
     printf("%d\n", d->val);
