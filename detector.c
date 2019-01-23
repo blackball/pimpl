@@ -34,7 +34,7 @@ detector_destroy(struct detector **pp)
 int
 detector_detect(struct detector *p)
 {
-    return p->detect(p->ptr);
+    return p != NULL ? p->detect(p->ptr) : -1; 
 }
 
 
