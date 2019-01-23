@@ -32,7 +32,7 @@ private:
 };
 ```
 
-I didn't like above design since it's not as simple as I want, too much cognitive burdern. 
+I didn't like above design since it's not as simple as I want, too much cognitive burdern. The internal impl. will also be *not-so-tidy*. 
 
 The output of that attempt was this *C-style* design. Till now, when I need to design the interfaces for similar situations, I always prefer this way and it works just fine. 
 
@@ -41,8 +41,8 @@ The C-style interfaces are like:
 #define DETECTOR_TYPE_OBJECTA 0
 #define DETECTOR_TYPE_OBJECTB 1
 struct detector;
-struct detector* detector_create(int mode);
-void detector_destroy(struct detector **pp);
+struct detector* detector_create(int type);
+int detector_destroy(struct detector **pp);
 int detector_detect(struct detector *p);
 ```
 
