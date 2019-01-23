@@ -36,8 +36,11 @@ struct detector *
 make_detector_objecta()
 {
     struct detector_objecta *d = detector_objecta_create();
-    d->api.ptr = d;
-    d->api.detect = (int (*)(void*))detector_objecta_detect;
-    d->api.destroy = (int (*)(void*))detector_objecta_destroy;
-    return &(d->api); // only return the api 
+    if (d) {
+        d->api.ptr = d;
+        d->api.detect = (int (*)(void*))detector_objecta_detect;
+        d->api.destroy = (int (*)(void*))detector_objecta_destroy;
+        return &(d->api); // only return the api
+    }
+    return NULL;
 }
